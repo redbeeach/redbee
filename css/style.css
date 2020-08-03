@@ -270,7 +270,7 @@ header ul > li:hover:after {
 
 /*------portfolio image-----------*/
 .pp_1 > .imageBox {
-    background: url(../images/pp_img1.png);
+    background: url(../images/game.png);
     background-size: cover;
     background-position: 100% 0%;
     transition: 0.5s;
