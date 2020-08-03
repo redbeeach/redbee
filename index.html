@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Seoul Pay</title>
+    <meta name="viewport" content="width=device-width , initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animate.css">
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/prefixfree.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/wow.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+
+    <script type="text/javascript">
+        $(function() {
+            var select = ".section";
+            $(select).each(function(index) {
+
+                // 개별적으로 Wheel 이벤트 적용
+                $(this).on("mousewheel DOMMouseScroll", function(e) {
+                    e.preventDefault();
+                    var delta = 0;
+                    if (!event) event = window.event;
+                    if (event.wheelDelta) {
+                        delta = event.wheelDelta / 120;
+                        if (window.opera) delta = -delta;
+                    } else if (event.detail)
+                        delta = -event.detail / 3;
+                    var moveScorll = $(window).scrollTop();
+                    var section = $(select).eq(index);
+                    // 마우스휠을 위에서 아래로
+                    if (delta < 0) {
+                        if ($(section).next() != undefined) {
+                            try {
+                                moveScorll = $(section).next().offset().top;
+                                $('header').removeClass('nav-up').addClass('nav-down');
+                            } catch (e) {}
+                        }
+                        // 마우스휠을 아래에서 위로
+                    } else {
+                        if ($(section).prev() != undefined) {
+                            try {
+                                moveScorll = $(section).prev().offset().top;
+
+                            } catch (e) {}
+                        }
+                    }
+                    $(window).scroll(function() {
+                        var windowScroll = $(window).scrollTop();
+                        if (windowScroll == 0) {
+                            $('header').removeClass('nav-down').addClass('nav-up');
+                        };
+                    });
+
+                    // 화면 이동 0.8초(800)
+                    $("html,body").stop().animate({
+                        scrollTop: moveScorll + 'px'
+                    }, {
+                        duration: 1200,
+                        complete: function() {}
+                    });
+
+                });
+            });
+            $(window).scroll(function() {
+                var sct = $(window).scrollTop();
+                var bg_color = $('header #top_menu');
+
+                $(".section").each(function() {
+                    var tg = $(this);
+                    var i = tg.index();
+
+                    if (tg.offset().top <= sct + 114) {
+                        // content별 메뉴명 색상을 바꿔준다.
+                        $("header ul li").removeClass('on');
+                        $("header ul li").eq(i).addClass('on');
+                    }
+                });
+            });
+            //    메뉴 누르면 해당 컨텐츠로 이동
+            $("header ul li").click(function(e) {
+                e.preventDefault();
+
+                var tg = $(this);
+                var i = tg.index();
+
+                var section = $(".section").eq(i);
+                var tt = section.offset().top;
+
+                $('html, body').stop().animate({
+                    scrollTop: tt
+                });
+            });
+            new WOW().init();
+        });
+    </script>
+
+
+    <style>
+        /*defult setting*/
+        body::-webkit-scrollbar {
+            display: none;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'Typo_SsangmunDongB';
+        }
+
+        #wrap {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .section {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            color: #ffffff;
+            font-size: 24pt;
+        }
+
+        .content {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        header {
+            position: fixed;
+            width: 100%;
+            height: 100px;
+            z-index: 9999;
+        }
+
+        .nav-up {
+            background: rgba(0, 0, 0, 0.1);
+            transition: 0.5s;
+        }
+
+        .nav-down {
+            background: rgba(0, 0, 0, 0.8);
+            transition: 0.5s;
+        }
+
+        header ul li.on a {
+            color: #ffeb3b;
+            font-weight: bold;
+        }
+
+        .home {
+            background: url(images/wp6203652.png);
+            background-size: cover;
+        }
+
+        .profile {
+            background: url(images/simone-mandl-190215-2.jpg);
+            background-size: cover;
+        }
+
+        .Portfolio {
+            background: url(images/Layer3.png)50% 100%;
+            background-size: cover;
+        }
+
+        .last {
+            background: url(images/wp5179762.jpg)no-repeat;
+            background-size:cover;
+     
+        }
+
+        .con0 {
+            background: rgba(0, 0, 0, .5);
+            background-size: cover; margin: 0 auto;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header id="top_menu" class="nav-up">
+        <ul>
+            <li class="on"><a href="http://naver.com">home</a></li>
+            <li><a href="#">pro</a></li>
+            <li><a href="#">page</a></li>
+            <li><a href="#">page</a></li>
+        </ul>
+    </header>
+    <div id="wrap">
+        <div class="section home">
+            <div class="content con0">
+                <!--------------- hero section starts here --------------->
+                <div class="hero">
+                    <div class="header">
+                        <h1 class="line anim-typewriter">portpolio site.</h1>
+                        <p class="line1 anim-typewriter" style="transform: translateY(26px);">weppublulish</p>
+                        <p class="line2 anim-typewriter" style="    transform: translateY(37px);">yun hong bi</p>
+                    </div>
+                </div>
+
+                <div class="scroll-down"></div>
+                <!--------------- hero section ends here --------------->
+            </div>
+        </div>
+        <div class="section profile">
+            <div class="content con0">
+                <div class="container">
+                    <div class="photo">
+                        <div class="imgb"></div>
+                        <div class="textbx">
+                            <h1>yun hong bi</h1>
+                            <span>weppublulish</span>
+                        </div>
+                    </div>
+                    <div class="prof">
+                        <div class="pro">
+                            <h2>profile</h2>
+                            <p>name <span style="margin-left: 66px;">윤홍비 yun hong bi</span></p>
+                            <p class="p1">DATE<span>1994.11.26</span></p>
+                            <p class="p2">TRAINING<span style="margin-left: 22px;">2020.03~2020.08 <span class="spans">방송정보국제교육원</span></span></p>
+                        </div>
+                        <div class="contacts">
+                            <h2>contacts</h2>
+                            <p>phone <span>010-1234-4321</span></p>
+                            <p>email<span>redbee@gmail.com</span></p>
+
+                        </div>
+
+                    </div>
+                    <div id="chartdiv">
+                        <div class="center">
+                            <h1>soft ware skills</h1>
+                            <div class="skillbox">
+                                <p>html5/css <span></span></p>
+                                <p>90%</p>
+                                <div class="skill">
+                                    <div class="skill_level" style="width: 90%">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="skillbox">
+                                <p>jquery/Javascript</p>
+                                <p>90%</p>
+                                <div class="skill">
+                                    <div class="skill_level" style="width: 90%">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="skillbox">
+                                <p>photoshop/lllustrator</p>
+                                <p>85%</p>
+                                <div class="skill">
+                                    <div class="skill_level" style="width: 85%;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="skillbox">
+                                <p>jsp/java</p>
+                                <p>85%</p>
+                                <div class="skill">
+                                    <div class="skill_level" style="width: 85%">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="skillbox">
+                                <p>oracle database</p>
+                                <p>80%</p>
+                                <div class="skill">
+                                    <div class="skill_level" style="width: 80%">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section Portfolio">
+            <div class="content con0">
+                <div class="pplist" style="display: block;">
+                    <div class="pp_1">
+                        <div class="imageBox"></div>
+                        <h3>봉준호site 팀프로젝트 웹</h3>
+                        <p>HTML5 CSS3 Javasciprt jQuery / 반응형</p>
+                        <h4><a target="_blank" href="https://redbeeach.github.io/game/">VIEW</a></h4>
+                    </div>
+                    <div class="pp_2">
+                        <div class="imageBox"></div>
+                        <h3>Naruto Storm4 자체제작 웹</h3>
+                        <p>HTML5 CSS3 Javasciprt jQuery / 반응형</p>
+                        <h4><a target="_blank" href="https://redbeeach.github.io/naruto/">VIEW</a></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section last">
+           <div class="content con0">
+                <div class="pplist" style="display: block;">
+                    <div class="pp_1">
+                        <div class="imageBox"></div>
+                        <h3>봉준호site 팀프로젝트 웹</h3>
+                        <p>HTML5 CSS3 Javasciprt jQuery / 반응형</p>
+                        <h4><a target="_blank" href="https://redbeeach.github.io/game/">VIEW</a></h4>
+                    </div>
+                    <div class="pp_2">
+                        <div class="imageBox"></div>
+                        <h3>Naruto Storm4 자체제작 웹</h3>
+                        <p>HTML5 CSS3 Javasciprt jQuery / 반응형</p>
+                        <h4><a target="_blank" href="https://redbeeach.github.io/naruto/">VIEW</a></h4>
+                    </div>
+                </div>
+           </div>
+            
+        </div>
+    </div>
+</body></html>

@@ -1,0 +1,58 @@
+@font-face{
+    font-family:'Typo_SsangmunDongB';
+        src: local('font/Typo_SsangmunDongB'),
+            url('../font/Typo_SsangmunDongB.ttf');
+}
+@font-face{
+    font-family:'hans punch';
+        src: local('font/hans punch'),
+            url('../font/hans punch.ttf');
+}
+html, body, div, span, p, a, del, em, img, ol, ul, li, fieldset, form, label {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+a{text-decoration: none; color: #f9f9f9;}
+li{list-style: none;}
+
+html, body {
+	line-height: 1;
+	min-height:100%;
+	font-family:'Typo_SsangmunDongB';
+}
+body {
+	background: #eeeeee;
+	background: -webkit-linear-gradient(top, #eeeeee, #cccccc 100%);
+	background: -moz-linear-gradient(top, #eeeeee, #cccccc 100%);
+	background: -o-linear-gradient(top, #eeeeee, #cccccc 100%);
+	background: -ms-linear-gradient(top, #eeeeee, #cccccc 100%);
+	background: linear-gradient(top, #eeeeee, #cccccc 100%);
+	background-attachment:fixed;
+}
+
+.skrollr-desktop #scrollbar {display:none;}
+
+#intro {
+    z-index: 51;
+	width:100%;
+	text-align:center;
+	
+
+	-webkit-transform-origin:0 0;
+	-moz-transform-origin:0 0;
+	-ms-transform-origin:0 0;
+	-o-transform-origin:0 0;
+	transform-origin:0 0;
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
