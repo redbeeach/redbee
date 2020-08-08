@@ -1,7 +1,7 @@
 @font-face{
-    font-family:'Typo_SsangmunDongB';
-        src: local('font/Typo_SsangmunDongB'),
-            url('../font/Typo_SsangmunDongB.ttf');
+    font-family:'NanumSquareB';
+        src: local('font/NanumSquareB'),
+            url('../font/NanumSquareB.ttf');
 }
 @font-face{
     font-family:'hans punch';
@@ -26,7 +26,8 @@ li{list-style: none;}
 html, body {
 	line-height: 1;
 	min-height:100%;
-	font-family:'Typo_SsangmunDongB';
+	font-family:'NanumSquareB';
+    box-sizing: border-box;
 }
 body {
 	background: #eeeeee;
