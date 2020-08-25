@@ -364,8 +364,32 @@
  .pp_2 > .imageBox:hover {
      background-position-y: bottom;
  }
+ .pp_3 > .imageBox {
+     background-image: url(../images/naruto.png);
+     background-size: cover;
+     background-position: 100% 0%;
+     transition: 0.5s;
+     transition: background 12s linear;
+     background-position-y: top;
 
+ }
 
+ .pp_3 > .imageBox:hover {
+     background-position-y: bottom;
+ }
+.pp_4 > .imageBox {
+     background-image: url(../images/eclipse.png);
+     background-size: cover;
+     background-position: 100% 0%;
+     transition: 0.5s;
+     transition: background 12s linear;
+     background-position-y: top;
+
+ }
+
+ .pp_4 > .imageBox:hover {
+     background-position-y: bottom;
+ }
  /*-----------last-----------*/
  .last .textup {
      margin: 0 auto;
